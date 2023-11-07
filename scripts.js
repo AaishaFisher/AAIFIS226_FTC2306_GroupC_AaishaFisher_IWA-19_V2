@@ -1,20 +1,16 @@
-import { BOOKS_PER_PAGE, authors, genres, books } from "./data";
+import { BOOKS_PER_PAGE, authors, genres, books } from "./data.js";
 
-matches = books
-page = 1;
+//conitions that check whether there is content to display. 
+let range = books.length
+//page = 1;
 
-if (!books && !Array.isArray(books)) throw new Error('Source required') 
-if (!range && range.length < 2) throw new Error('Range must be an array with two numbers')
+if (!books || !Array.isArray(books)) {
+throw new Error('Source required') 
+};
+if (!range || range.length < 2) {
+throw new Error('Range must be an array with two numbers')
+};
 
-day = {
-    dark: '10, 10, 20',
-    light: '255, 255, 255',
-}
-
-night = {
-    dark: '255, 255, 255',
-    light: '10, 10, 20',
-}
 
 fragment = document.createDocumentFragment()
 const extracted = books.slice(0, 36)
