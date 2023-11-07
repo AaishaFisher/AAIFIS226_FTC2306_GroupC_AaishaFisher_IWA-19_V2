@@ -17,7 +17,7 @@ const homePageBookPreviews = document.createDocumentFragment();
 const extractedBooks = books.slice(0, 36); //stored the extracted book data in a variable
 
 for (let i = 0; i < extractedBooks.length; i++) {  //loop through and extract only certain data for preview
-    { authors, image, title, id }
+   const { authors, image, title, id } = books
     const preview = createPreview({
         author,
         id,
