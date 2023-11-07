@@ -11,11 +11,13 @@ if (!range || range.length < 2) {
 throw new Error('Range must be an array with two numbers')
 };
 
+//THE HOMEPAGE PREVIEWS
 
-fragment = document.createDocumentFragment()
-const extracted = books.slice(0, 36)
+const homePageBookPreviews = document.createDocumentFragment();
+const extractedBooks = books.slice(0, 36); //stored the extracted book data in a variable
 
-for ({ author, image, title, id }; extracted; i++) {
+for (let i = 0; i < extractedBooks.length; i++) {  //loop through and extract only certain data for preview
+   const  { authors, image, title, id }
     const preview = createPreview({
         author,
         id,
