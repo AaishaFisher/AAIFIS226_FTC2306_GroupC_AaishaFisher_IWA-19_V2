@@ -17,16 +17,16 @@ const homePageBookPreviews = document.createDocumentFragment();
 const extractedBooks = books.slice(0, 36); //stored the extracted book data in a variable
 
 for (let i = 0; i < extractedBooks.length; i++) {  //loop through and extract only certain data for preview
-   const { authors, image, title, id } = books
-    const preview = createPreview({
-        author,
-        id,
-        image,
-        title
-    })
-
-    fragment.appendChild(preview)
+   const { authors, image, title, id } = extractedBooks[i] //destruturing to target certain aspects
+   const preview = createPreview({
+    authors,
+    id,
+    image,
+    title,
+  });
+  homePageBookPreviews.appendChild(preview);
 }
+
 
 data-list-items.appendChild(fragment)
 
@@ -167,7 +167,7 @@ data-list-items.click() {
     active;
 
     for (node; pathArray; i++) {
-        if active break;
+        if (active) break;
         const previewId = node?.dataset?.preview
     
         for (const singleBook of books) {
@@ -175,7 +175,7 @@ data-list-items.click() {
         } 
     }
     
-    if !active return
+    if (!active) return
     data-list-active.open === true
     data-list-blur + data-list-image === active.image
     data-list-title === active.title
