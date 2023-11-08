@@ -14,21 +14,35 @@ throw new Error('Range must be an array with two numbers')
 //THE HOMEPAGE PREVIEWS
 
 const homePageBookPreviews = document.createDocumentFragment();
-const extractedBooks = books.slice(0, 36); //stored the extracted book data in a variable
+const extractedBooks = books.slice(0, 36); // Store the extracted book data in a variable
 
-for (let i = 0; i < extractedBooks.length; i++) {  //loop through and extract only certain data for preview
-   const { authors, image, title, id } = extractedBooks[i] //destruturing to target certain aspects
-   const preview = createPreview({
-    authors,
-    id,
-    image,
-    title,
-  });
-  homePageBookPreviews.appendChild(preview);
+for (let i = 0; i < extractedBooks.length; i++) {
+  const { authors, image, title, id } = extractedBooks[i]; // Destructuring to target certain aspects
+  const homePreview = document.createElement('dl'); // Create the dl element for the preview
+  homePreview.className = 'preview'; // Give it a class name
+  homePreview.dataset.id = id;
+  homePreview.dataset.image = image;
+  homePreview.dataset.title = title;
+  homePreview.dataset.subtitle = `${authors[id]} (${new Date(extractedBooks[i].published).getFullYear()})`;
+  homePreview.dataset.description = extractedBooks[i].description;
+  homePreview.dataset.genre = extractedBooks[i].genres;
+  homePreview.innerHTML = `
+    <div>
+      <img class='preview__image' src='${image}' alt='picture of the book'/>
+    </div>
+    <div class= 'preview__info'>
+      <dt class='preview__title'>${title}</dt>
+      <dt class='preview__author'>By ${authors[id]}</dt>
+    </div>
+  `;
+  homePageBookPreviews.appendChild(homePreview);
 }
 
+const fullBookList = document.querySelector('[data-list-items]'); // Corrected querySelector method
+fullBookList.appendChild(homePageBookPreviews);
 
-data-list-items.appendChild(fragment)
+
+
 
 genres = document.createDocumentFragment()
 element = document.createElement('option')
