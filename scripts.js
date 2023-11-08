@@ -12,7 +12,7 @@ throw new Error('Range must be an array with two numbers')
 };
 
 
-
+//the homepage previews
 const homePageBookPreviews = document.createDocumentFragment();
 const extractedBooks = books.slice(0, 36); // Store the extracted book data in a variable
 
@@ -46,7 +46,16 @@ const fullBookList = document.querySelector('[data-list-items]'); // Corrected q
 fullBookList.appendChild(homePageBookPreviews);
 
 
+//colors for night and day
+const day = {
+    dark: '10, 10, 20',
+    light: '255, 255, 255',
+};
 
+const night = {
+    dark: '255, 255, 255',
+    light: '10, 10, 20',
+};
 
 
 // genres = document.createDocumentFragment()
