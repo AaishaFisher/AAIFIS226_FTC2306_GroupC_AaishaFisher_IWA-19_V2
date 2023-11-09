@@ -42,7 +42,7 @@ for (let i = 0; i < extractedBooks.length; i++) {
   homePageBookPreviews.appendChild(homePreview);
 }
 
-const fullBookList = document.querySelector('[data-list-items]'); // Corrected querySelector method
+const fullBookList = document.querySelector('[data-list-items]'); 
 fullBookList.appendChild(homePageBookPreviews);
 
 
@@ -56,6 +56,47 @@ const night = {
     dark: '255, 255, 255',
     light: '10, 10, 20',
 };
+
+//setting up the buttons for theme toggle
+const themeToggle = document.querySelector('[data-header-settings]') //button for night/day toggle
+const themeSelector = document.querySelector('[data-settings-overlay]') //buttons for choosing night/day
+const saveButton = document.querySelector("body > dialog:nth-child(5) > div > div > button.overlay__button.overlay__button_primary"); //save button
+
+// Function to set the theme based on user's system preference
+function setThemeBasedOnSystemPreference() {
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+
+themeToggle.addEventListener('click', ()=>{themeChoice})
+const dataSettingsTheme = document.querySelector('[data-settings-theme]')
+const saveButton = document.querySelector("body > dialog:nth-child(5) > div > div > button.overlay__button.overlay__button_primary")
+
+saveButton.addEventListener('click', (event) =>{event.preventDefault()
+    if (dataSettingsTheme.value === 'day') {
+      document.querySelector('body').style.setProperty('--color-dark', day.dark)
+      document.querySelector('body').style.setProperty('--color-light', day.light)
+    }
+    if (dataSettingsTheme.value === 'night') {
+      document.querySelector('body').style.setProperty('--color-dark', night.dark)
+      document.querySelector('body').style.setProperty('--color-light', night.light)
+    }
+  })
+
+
+//set the users preferred theme up
+// const defaultTheme = querySelector('[data-settings-theme]').value === window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'
+// v = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches? 'night' | 'day'
+
+// documentElement.style.setProperty('--color-dark', css[v].dark);
+// documentElement.style.setProperty('--color-light', css[v].light);
+// / data-settings-overlay.submit; {
+//         preventDefault()
+//         const formData = new FormData(event.target)
+//         const result = Object.fromEntries(formData)
+//         document.documentElement.style.setProperty('--color-dark', css[result.theme].dark);
+//         document.documentElement.style.setProperty('--color-light', css[result.theme].light);
+//         data-settings-overlay).open === false
+//     }
 
 
 // genres = document.createDocumentFragment()
@@ -88,11 +129,9 @@ const night = {
 
 // data-search-authors.appendChild(authors)
 
-// data-settings-theme.value === window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'
-// v = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches? 'night' | 'day'
+// 
 
-// documentElement.style.setProperty('--color-dark', css[v].dark);
-// documentElement.style.setProperty('--color-light', css[v].light);
+
 // data-list-button = "Show more (books.length - BOOKS_PER_PAGE)"
 
 // data-list-button.disabled = !(matches.length - [page * BOOKS_PER_PAGE] > 0)
@@ -181,14 +220,7 @@ const night = {
 //     data-search-overlay.open = false
 // }
 
-// data-settings-overlay.submit; {
-//     preventDefault()
-//     const formData = new FormData(event.target)
-//     const result = Object.fromEntries(formData)
-//     document.documentElement.style.setProperty('--color-dark', css[result.theme].dark);
-//     document.documentElement.style.setProperty('--color-light', css[result.theme].light);
-//     data-settings-overlay).open === false
-// }
+
 
 // data-list-items.click() {
 //     pathArray = Array.from(event.path || event.composedPath())
