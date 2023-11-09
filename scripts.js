@@ -57,56 +57,50 @@ const night = {
     light: '10, 10, 20',
 };
 
-//setting up the buttons for theme toggle
-const themeToggle = document.querySelector('[data-header-settings]') //button for night/day toggle
-const themeSelector = document.querySelector('[data-settings-overlay]') //buttons for choosing night/day
-const saveButton = document.querySelector("body > dialog:nth-child(5) > div > div > button.overlay__button.overlay__button_primary"); //save button
 
 // Function to set the theme based on user's system preference
-function setThemeBasedOnSystemPreference() {
+function setThemeBasedOnSystemPreference(themeSelector) {
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-if (prefersDarkMode) {
-    document.querySelector('body').style.setProperty('--color-dark', night.dark);
-    document.querySelector('body').style.setProperty('--color-light', night.light);
-    dataSettingsTheme.value = 'night';
-} else {
-        
-        document.querySelector('body').style.setProperty('--color-dark', day.dark);
-        document.querySelector('body').style.setProperty('--color-light', day.light);
-        dataSettingsTheme.value = 'day';
-}
-
-setThemeBasedOnSystemPreference();  //runs that function
-
-//event listener for user choosing alternative theme
-themeToggle.addEventListener('click', ()=> {
-    if (dataSettingsTheme.value === 'day') {
-    
+    if (prefersDarkMode) {
         document.querySelector('body').style.setProperty('--color-dark', night.dark);
         document.querySelector('body').style.setProperty('--color-light', night.light);
-        dataSettingsTheme.value = 'night';
+        themeSelector.value = 'night';
     } else {
-     
         document.querySelector('body').style.setProperty('--color-dark', day.dark);
         document.querySelector('body').style.setProperty('--color-light', day.light);
-        dataSettingsTheme.value = 'day';
+        themeSelector.value = 'day';
+    }
+}
+
+setThemeBasedOnSystemPreference(themeSelector); // Call the function to set the initial theme
+
+// Event listener for user choosing an alternative theme
+themeToggle.addEventListener('click', () => {
+    if (themeSelector.value === 'day') {
+        document.querySelector('body').style.setProperty('--color-dark', night.dark);
+        document.querySelector('body').style.setProperty('--color-light', night.light);
+        themeSelector.value = 'night';
+    } else {
+        document.querySelector('body').style.setProperty('--color-dark', day.dark);
+        document.querySelector('body').style.setProperty('--color-light', day.light);
+        themeSelector.value = 'day';
     }
 });
 
-//save button for confirming options
-saveButton.addEventListener('click', (event) =>{
+// Save button for confirming options
+saveButton.addEventListener('click', (event) => {
     event.preventDefault();
 
-    if (dataSettingsTheme.value === 'day') {
-      document.querySelector('body').style.setProperty('--color-dark', day.dark)
-      document.querySelector('body').style.setProperty('--color-light', day.light)
+    if (themeSelector.value === 'day') {
+        document.querySelector('body').style.setProperty('--color-dark', day.dark);
+        document.querySelector('body').style.setProperty('--color-light', day.light);
     }
-    if (dataSettingsTheme.value === 'night') {
-      document.querySelector('body').style.setProperty('--color-dark', night.dark)
-      document.querySelector('body').style.setProperty('--color-light', night.light)
+    if (themeSelector.value === 'night') {
+        document.querySelector('body').style.setProperty('--color-dark', night.dark);
+        document.querySelector('body').style.setProperty('--color-light', night.light);
     }
-  })
+});
 
 
 //set the users preferred theme up
@@ -268,4 +262,3 @@ saveButton.addEventListener('click', (event) =>{
     
 //     data-list-subtitle === '${authors[active.author]} (${Date(active.published).year})'
 //     data-list-description === active.description
-
