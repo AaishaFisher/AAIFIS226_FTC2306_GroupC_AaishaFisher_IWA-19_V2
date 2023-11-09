@@ -77,11 +77,27 @@ if (prefersDarkMode) {
         dataSettingsTheme.value = 'day';
 }
 
-themeToggle.addEventListener('click', ()=>{themeChoice})
-const dataSettingsTheme = document.querySelector('[data-settings-theme]')
-const saveButton = document.querySelector("body > dialog:nth-child(5) > div > div > button.overlay__button.overlay__button_primary")
+setThemeBasedOnSystemPreference();  //runs that function
 
-saveButton.addEventListener('click', (event) =>{event.preventDefault()
+//event listener for user choosing alternative theme
+themeToggle.addEventListener('click', ()=> {
+    if (dataSettingsTheme.value === 'day') {
+    
+        document.querySelector('body').style.setProperty('--color-dark', night.dark);
+        document.querySelector('body').style.setProperty('--color-light', night.light);
+        dataSettingsTheme.value = 'night';
+    } else {
+     
+        document.querySelector('body').style.setProperty('--color-dark', day.dark);
+        document.querySelector('body').style.setProperty('--color-light', day.light);
+        dataSettingsTheme.value = 'day';
+    }
+});
+
+//save button for confirming options
+saveButton.addEventListener('click', (event) =>{
+    event.preventDefault();
+
     if (dataSettingsTheme.value === 'day') {
       document.querySelector('body').style.setProperty('--color-dark', day.dark)
       document.querySelector('body').style.setProperty('--color-light', day.light)
@@ -252,4 +268,4 @@ saveButton.addEventListener('click', (event) =>{event.preventDefault()
     
 //     data-list-subtitle === '${authors[active.author]} (${Date(active.published).year})'
 //     data-list-description === active.description
-// }
+
