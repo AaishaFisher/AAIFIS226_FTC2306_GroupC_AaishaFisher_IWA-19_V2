@@ -63,8 +63,9 @@ const themeToggle = document.querySelector('[data-header-settings]'); // button 
 const themeSelector = document.querySelector('[data-settings-overlay]'); // buttons for choosing night/day
 const saveButton = document.querySelector("body > dialog:nth-child(5) > div > div > button.overlay__button.overlay__button_primary"); // save button
 
+
 // Function to set the theme based on user's system preference
-function setThemeBasedOnSystemPreference(themeSelector) {
+function setThemeBasedOnSystemPreference() {
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     if (prefersDarkMode) {
@@ -78,15 +79,17 @@ function setThemeBasedOnSystemPreference(themeSelector) {
     }
 }
 
-setThemeBasedOnSystemPreference(themeSelector); // Call the function to set the initial theme
+setThemeBasedOnSystemPreference(); // Call the function to set the initial theme
 
 // Event listener for user choosing an alternative theme
 themeToggle.addEventListener('click', () => {
     if (themeSelector.value === 'day') {
+        // Switch to the night theme
         document.querySelector('body').style.setProperty('--color-dark', night.dark);
         document.querySelector('body').style.setProperty('--color-light', night.light);
         themeSelector.value = 'night';
     } else {
+        // Switch to the day theme
         document.querySelector('body').style.setProperty('--color-dark', day.dark);
         document.querySelector('body').style.setProperty('--color-light', day.light);
         themeSelector.value = 'day';
