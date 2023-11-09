@@ -66,7 +66,15 @@ const saveButton = document.querySelector("body > dialog:nth-child(5) > div > di
 function setThemeBasedOnSystemPreference() {
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    
+if (prefersDarkMode) {
+    document.querySelector('body').style.setProperty('--color-dark', night.dark);
+    document.querySelector('body').style.setProperty('--color-light', night.light);
+    dataSettingsTheme.value = 'night';
+} else {
+        
+        document.querySelector('body').style.setProperty('--color-dark', day.dark);
+        document.querySelector('body').style.setProperty('--color-light', day.light);
+        dataSettingsTheme.value = 'day';
 }
 
 themeToggle.addEventListener('click', ()=>{themeChoice})
