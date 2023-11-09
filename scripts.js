@@ -66,6 +66,8 @@ const saveButton = document.querySelector("body > dialog:nth-child(5) > div > di
 function setThemeBasedOnSystemPreference() {
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
+    
+}
 
 themeToggle.addEventListener('click', ()=>{themeChoice})
 const dataSettingsTheme = document.querySelector('[data-settings-theme]')
