@@ -58,6 +58,11 @@ const night = {
 };
 
 
+//set up the buttons
+const themeToggle = document.querySelector('[data-header-settings]'); // button for night/day toggle
+const themeSelector = document.querySelector('[data-settings-overlay]'); // buttons for choosing night/day
+const saveButton = document.querySelector("body > dialog:nth-child(5) > div > div > button.overlay__button.overlay__button_primary"); // save button
+
 // Function to set the theme based on user's system preference
 function setThemeBasedOnSystemPreference(themeSelector) {
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
