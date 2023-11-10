@@ -84,6 +84,24 @@ const themeELementReference = {
     saveButton: document.querySelector(button.overlay__button.overlay__button_primary[form='settings']),
     cancelButton: document.querySelector('[data-settings-cancel]');
 }
+
+//change theme based on what user selects
+const chooseTheme = (event) => {
+    event.preventDefault();
+    const themeValue = themeELementReference.theme.value;
+
+    //day theme color scheme
+    if (themeValue === 'day') {
+        document.documentElement.style.setProperty("--color-dark", day.dark);
+        document.documentElement.style.setProperty("--color-light", day.light);
+    //day theme color scheme
+    } else if (themeValue ==='night') {
+        document.documentElement.style.setProperty("--color-dark", night.dark);
+        document.documentElement.style.setProperty("--color-light", night.light);
+    }
+}
+
+
 // // Set the user's preferred theme
 // const defaultTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
 
