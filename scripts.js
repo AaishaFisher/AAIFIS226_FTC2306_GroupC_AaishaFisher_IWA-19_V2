@@ -99,8 +99,20 @@ const chooseTheme = (event) => {
         document.documentElement.style.setProperty("--color-dark", night.dark);
         document.documentElement.style.setProperty("--color-light", night.light);
     }
+
+    themeSettings();
 }
 
+//toggle settings overlay
+const themeSettings = () => {
+    const settingsOverlay = themeELementReference.overlay;
+if (settingsOverlay.open) {
+    settingsOverlay.open = false;
+} else {
+    settingsOverlay.open = true;
+};
+
+}
 
 // // Set the user's preferred theme
 // const defaultTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
