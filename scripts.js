@@ -48,6 +48,7 @@ const bookElement = document.createElement('dl');
   return bookElement;
 };
 
+
 //extract and store the 36 books for home page preview
 const extractedBooks = books.slice(0, 36);
 
@@ -58,22 +59,31 @@ for (const bookObj of extractedBooks) {
     homePageBookPreviews.appendChild(newBook);
 }
 
-//Append the previews to the 'data-list-items' element
+//Append the previews to the 'data-list-items'
 const fullBookList = document.querySelector('[data-list-items]'); 
 fullBookList.appendChild(homePageBookPreviews);
 
 
-// //colors for night and day
-// const day = {
-//     dark: '10, 10, 20',
-//     light: '255, 255, 255',
-// };
 
-// const night = {
-//     dark: '255, 255, 255',
-//     light: '10, 10, 20',
-// };
+//THEME
+const day = {
+    dark: '10, 10, 20',
+    light: '255, 255, 255',
+};
 
+const night = {
+    dark: '255, 255, 255',
+    light: '10, 10, 20',
+};
+
+//create an object to easily reference and store data from html 
+const themeELementReference = {
+    headerIcon: document.querySelector('[data-header-settings]'),
+    overlay: document.querySelector('[data-settings-overlay]'),
+    theme: document.querySelector('[data-settings-theme]'),
+    saveButton: document.querySelector(button.overlay__button.overlay__button_primary[form='settings']),
+    cancelButton: document.querySelector('[data-settings-cancel]');
+}
 // // Set the user's preferred theme
 // const defaultTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
 
