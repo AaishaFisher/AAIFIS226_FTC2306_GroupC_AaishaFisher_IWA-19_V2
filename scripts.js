@@ -81,7 +81,7 @@ const themeELementReference = {
     headerIcon: document.querySelector('[data-header-settings]'),
     overlay: document.querySelector('[data-settings-overlay]'),
     theme: document.querySelector('[data-settings-theme]'),
-    saveButton: document.querySelector(button.overlay__button.overlay__button_primary[form='settings']),
+    saveButton: document.querySelector("button.overlay__button.overlay__button_primary[form='settings']"),
     cancelButton: document.querySelector('[data-settings-cancel]')
 }
 
@@ -114,7 +114,10 @@ const chooseTheme = (event) => {
     themeSettings();
 }
 
-
+//Button settings event listeners
+themeELementReference.headerIcon.addEventListener('click', themeSettings);
+themeELementReference.cancelButton.addEventListener('click', themeSettings);
+themeELementReference.saveButton.addEventListener('click', chooseTheme);
 
 // // Set the user's preferred theme
 // const defaultTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
