@@ -82,7 +82,18 @@ const themeELementReference = {
     overlay: document.querySelector('[data-settings-overlay]'),
     theme: document.querySelector('[data-settings-theme]'),
     saveButton: document.querySelector(button.overlay__button.overlay__button_primary[form='settings']),
-    cancelButton: document.querySelector('[data-settings-cancel]');
+    cancelButton: document.querySelector('[data-settings-cancel]')
+}
+
+//toggle settings overlay
+const themeSettings = () => {
+    const settingsOverlay = themeELementReference.overlay;
+if (settingsOverlay.open) {
+    settingsOverlay.open = false;
+} else {
+    settingsOverlay.open = true;
+};
+
 }
 
 //change theme based on what user selects
@@ -103,16 +114,7 @@ const chooseTheme = (event) => {
     themeSettings();
 }
 
-//toggle settings overlay
-const themeSettings = () => {
-    const settingsOverlay = themeELementReference.overlay;
-if (settingsOverlay.open) {
-    settingsOverlay.open = false;
-} else {
-    settingsOverlay.open = true;
-};
 
-}
 
 // // Set the user's preferred theme
 // const defaultTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
