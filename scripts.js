@@ -119,11 +119,8 @@ themeELementReference.headerIcon.addEventListener('click', themeSettings);
 themeELementReference.cancelButton.addEventListener('click', themeSettings);
 themeELementReference.saveButton.addEventListener('click', chooseTheme);
 
-// // Set the user's preferred theme
-// const defaultTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
 
-// document.documentElement.style.setProperty('--color-dark', css[defaultTheme].dark);
-// document.documentElement.style.setProperty('--color-light', css[defaultTheme].light);
+
 
 // // Handle form submission for theme change
 // data-settings-overlay.submit = function (event) {
@@ -256,76 +253,6 @@ themeELementReference.saveButton.addEventListener('click', chooseTheme);
 //     data-list-subtitle.innerText = `${authors[active.author]} (${new Date(active.published).getFullYear()})`;
 //     data-list-description.innerText = active.description;
 // };
-
-
-// // //set up the buttons
-// // const themeToggle = document.querySelector('[data-header-settings]'); // button for night/day toggle
-// // const themeSelector = document.querySelector('[data-settings-overlay]'); // buttons for choosing night/day
-// // const saveButton = document.querySelector("body > dialog:nth-child(5) > div > div > button.overlay__button.overlay__button_primary"); // save button
-
-
-// // // Function to set the theme based on user's system preference
-// // function setThemeBasedOnSystemPreference() {
-// //     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-// //     if (prefersDarkMode) {
-// //         document.querySelector('body').style.setProperty('--color-dark', night.dark);
-// //         document.querySelector('body').style.setProperty('--color-light', night.light);
-// //         themeSelector.value = 'night';
-// //     } else {
-// //         document.querySelector('body').style.setProperty('--color-dark', day.dark);
-// //         document.querySelector('body').style.setProperty('--color-light', day.light);
-// //         themeSelector.value = 'day';
-// //     }
-// // }
-
-// // setThemeBasedOnSystemPreference(); // Call the function to set the initial theme
-
-// // // Event listener for user choosing an alternative theme
-// // themeToggle.addEventListener('click', () => {
-// //     if (themeSelector.value === 'day') {
-// //         // Switch to the night theme
-// //         document.querySelector('body').style.setProperty('--color-dark', night.dark);
-// //         document.querySelector('body').style.setProperty('--color-light', night.light);
-// //         themeSelector.value = 'night';
-// //     } else {
-// //         // Switch to the day theme
-// //         document.querySelector('body').style.setProperty('--color-dark', day.dark);
-// //         document.querySelector('body').style.setProperty('--color-light', day.light);
-// //         themeSelector.value = 'day';
-// //     }
-// // });
-
-// // // Save button for confirming options
-// // saveButton.addEventListener('click', (event) => {
-// //     event.preventDefault();
-
-// //     if (themeSelector.value === 'day') {
-// //         document.querySelector('body').style.setProperty('--color-dark', day.dark);
-// //         document.querySelector('body').style.setProperty('--color-light', day.light);
-// //     }
-// //     if (themeSelector.value === 'night') {
-// //         document.querySelector('body').style.setProperty('--color-dark', night.dark);
-// //         document.querySelector('body').style.setProperty('--color-light', night.light);
-// //     }
-// // });
-
-
-
-// //set the users preferred theme up
-// // const defaultTheme = querySelector('[data-settings-theme]').value === window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'
-// // v = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches? 'night' | 'day'
-
-// // documentElement.style.setProperty('--color-dark', css[v].dark);
-// // documentElement.style.setProperty('--color-light', css[v].light);
-// // / data-settings-overlay.submit; {
-// //         preventDefault()
-// //         const formData = new FormData(event.target)
-// //         const result = Object.fromEntries(formData)
-// //         document.documentElement.style.setProperty('--color-dark', css[result.theme].dark);
-// //         document.documentElement.style.setProperty('--color-light', css[result.theme].light);
-// //         data-settings-overlay).open === false
-// //     }
 
 
 // // genres = document.createDocumentFragment()
